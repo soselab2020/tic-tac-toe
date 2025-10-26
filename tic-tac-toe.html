@@ -12,6 +12,8 @@
 				height: 100px;
 			}
 			td {
+			border: 2px solid #333;
+			background-color: #f0f0f0;
 				width: 100px;
 				text-align: center;
 			}
@@ -29,11 +31,13 @@
 			} else if (player == 1) {
 				currentSelection.innerHTML = 'X'; 
 				player = 2; 
-				count++; 
+				count++;
+				document.getElementById("current-player").innerHTML = (player == 1) ? "X" : "O"; 
 			} else if (player == 2) {
 				currentSelection.innerHTML = 'O'; 
 				player = 1; 
 				count++;
+				document.getElementById("current-player").innerHTML = (player == 1) ? "X" : "O";
 			}
 			
 			for (var i = 1; i <= 3; i++) {
@@ -82,7 +86,10 @@
         </script>
     </head>
     <body>
-        <table id="table" border="1px" class="symbol">
+<h2>Tic Tac Toe Game</h2>
+<p>Click on any cell to make your move!</p>
+        <div id="player-status">Current Player: <span id="current-player">X</span></div>
+<table id="table" border="1px" class="symbol">
             <tr>
                 <td id='grid11' onclick="determine(id);"></td>
                 <td id='grid12' onclick="determine(id);"></td>
