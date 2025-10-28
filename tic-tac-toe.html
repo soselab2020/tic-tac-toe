@@ -8,17 +8,37 @@
 				font-family: Calibri;
 				font-size: 48px;
             }
-			tr {
-				height: 100px;
-			}
-			td {
-				width: 100px;
-				text-align: center;
-			}
+		tr {
+			height: 100px;
+		}
+		td {
+			width: 100px;
+			text-align: center;
+		}
+		#restartButton {
+			margin-top: 20px;
+			padding: 10px 20px;
+			font-size: 16px;
+			cursor: pointer;
+		}
+		#turnDisplay {
+                margin-bottom: 20px;
+                font-size: 24px;
+                font-weight: bold;
+                color: #333;
+            }
+		.empty-cell:hover {
+                background-color: #f0f8ff;
+                cursor: pointer;
+            }
         </style>
         <script>
 		var count = 0; 
 		var player = 1;
+		var turnDisplay;
+		window.onload = function() {
+                turnDisplay = document.getElementById('turnDisplay');
+            };
 		function determine(id) {
 			var grids = [];
 			var isLine = false;
@@ -27,13 +47,17 @@
 			if (currentSelection.innerHTML) {
 				window.alert("此位置無法選取！");
 			} else if (player == 1) {
+				currentSelection.classList.remove('empty-cell');
 				currentSelection.innerHTML = 'X'; 
 				player = 2; 
 				count++; 
+				turnDisplay.textContent = "輪到 O 了！";
 			} else if (player == 2) {
+				currentSelection.classList.remove('empty-cell');
 				currentSelection.innerHTML = 'O'; 
 				player = 1; 
 				count++;
+				turnDisplay.textContent = "輪到 X 了！";
 			}
 			
 			for (var i = 1; i <= 3; i++) {
@@ -59,18 +83,21 @@
 			
 			if (isLine == true) {			
 				if (currentSelection.innerHTML == "O") {
+					turnDisplay.textContent = "O 贏了！";
 					setTimeout(() => { 
 						window.alert("O贏了！"); 
 						location.reload();
 					}, 300) ;					
 				}
 				else if (currentSelection.innerHTML == "X") {
+					turnDisplay.textContent = "X 贏了！";
 					setTimeout(() => { 
 						window.alert("X贏了！"); 
 						location.reload();
 					}, 300) ;		
 				}
 			} else if (count == 9) {
+				turnDisplay.textContent = "平手！";
 				setTimeout(() => { 
 					window.alert("平手"); 
 					location.reload();
@@ -78,26 +105,30 @@
 			}			
 			
 		}
-             
+		function restartGame() {
+			location.reload();
+		}
         </script>
     </head>
     <body>
+	  <h2 id="turnDisplay">輪到 X 了！</h2>
         <table id="table" border="1px" class="symbol">
             <tr>
-                <td id='grid11' onclick="determine(id);"></td>
-                <td id='grid12' onclick="determine(id);"></td>
-                <td id='grid13' onclick="determine(id);"></td>
+                <td id='grid11' class="empty-cell" onclick="determine(id);"></td>
+                <td id='grid12' class="empty-cell" onclick="determine(id);"></td>
+                <td id='grid13' class="empty-cell" onclick="determine(id);"></td>
             </tr>
             <tr>
-                <td id='grid21' onclick="determine(id);"></td>
-                <td id='grid22' onclick="determine(id);"></td>
-                <td id='grid23' onclick="determine(id);"></td>
+                <td id='grid21' class="empty-cell" onclick="determine(id);"></td>
+                <td id='grid22' class="empty-cell" onclick="determine(id);"></td>
+                <td id='grid23' class="empty-cell" onclick="determine(id);"></td>
             </tr>
             <tr>
-                <td id='grid31' onclick="determine(id);"></td>
-                <td id='grid32' onclick="determine(id);"></td>
-                <td id='grid33' onclick="determine(id);"></td>
+                <td id='grid31' class="empty-cell" onclick="determine(id);"></td>
+                <td id='grid32' class="empty-cell" onclick="determine(id);"></td>
+                <td id='grid33' class="empty-cell" onclick="determine(id);"></td>
             </tr>
         </table>
+	  <button id="restartButton" onclick="restartGame();">restart</button>
     </body>
 </html>
