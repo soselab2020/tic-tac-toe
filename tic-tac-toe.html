@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-		<title>tic-tac-toe</title> 
+		<title>馬修的井字遊戲 (Tic-Tac-Toe)</title> 
         <style type = "text/CSS">
             .symbol {
 				font-family: Calibri;
@@ -58,21 +58,16 @@
 			}
 			
 			if (isLine == true) {			
-				if (currentSelection.innerHTML == "O") {
-					setTimeout(() => { 
-						window.alert("O贏了！"); 
-						location.reload();
-					}, 300) ;					
-				}
-				else if (currentSelection.innerHTML == "X") {
-					setTimeout(() => { 
-						window.alert("X贏了！"); 
-						location.reload();
-					}, 300) ;		
-				}
+				// === START: 適當的修改 1/2 - 調整獲勝提示 ===
+				var winner = currentSelection.innerHTML;
+				setTimeout(() => { 
+					window.alert("恭喜！ " + winner + " 獲勝了！遊戲重新開始。"); 
+					location.reload();
+				}, 300) ;
+				// === END: 適當的修改 1/2 ===
 			} else if (count == 9) {
 				setTimeout(() => { 
-					window.alert("平手"); 
+					window.alert("平手！沒有人獲勝，遊戲重新開始。"); 
 					location.reload();
 				}, 300) ;		
 			}			
