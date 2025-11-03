@@ -14,6 +14,7 @@
 			td {
 				width: 100px;
 				text-align: center;
+				color : red;
 			}
         </style>
         <script>
@@ -60,19 +61,19 @@
 			if (isLine == true) {			
 				if (currentSelection.innerHTML == "O") {
 					setTimeout(() => { 
-						window.alert("O贏了！"); 
+						window.alert("O贏了！ congratulations!"); 
 						location.reload();
 					}, 300) ;					
 				}
 				else if (currentSelection.innerHTML == "X") {
 					setTimeout(() => { 
-						window.alert("X贏了！"); 
+						window.alert("X贏了！ congratulations!"); 
 						location.reload();
 					}, 300) ;		
 				}
 			} else if (count == 9) {
 				setTimeout(() => { 
-					window.alert("平手"); 
+					window.alert("平手 那再來一局?"); 
 					location.reload();
 				}, 300) ;		
 			}			
