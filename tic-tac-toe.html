@@ -19,6 +19,11 @@
         <script>
 		var count = 0; 
 		var player = 1;
+
+		function greeting(){
+			window.alert("歡迎 tic-tac-toe 游戲！");
+		}
+
 		function determine(id) {
 			var grids = [];
 			var isLine = false;
@@ -81,7 +86,7 @@
              
         </script>
     </head>
-    <body>
+    <body onload="greeting()">
         <table id="table" border="1px" class="symbol">
             <tr>
                 <td id='grid11' onclick="determine(id);"></td>
