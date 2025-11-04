@@ -60,13 +60,13 @@
 			if (isLine == true) {			
 				if (currentSelection.innerHTML == "O") {
 					setTimeout(() => { 
-						window.alert("O贏了！"); 
+						window.alert("玩家O贏了！"); 
 						location.reload();
 					}, 300) ;					
 				}
 				else if (currentSelection.innerHTML == "X") {
 					setTimeout(() => { 
-						window.alert("X贏了！"); 
+						window.alert("玩家X贏了！"); 
 						location.reload();
 					}, 300) ;		
 				}
@@ -82,6 +82,7 @@
         </script>
     </head>
     <body>
+		<h2 style="font-family: Calibri; color: #8fbeed;">井字遊戲</h2>
         <table id="table" border="1px" class="symbol">
             <tr>
                 <td id='grid11' onclick="determine(id);"></td>
