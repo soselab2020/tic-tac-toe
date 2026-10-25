@@ -4,6 +4,10 @@
         <meta charset="utf-8">
 		<title>tic-tac-toe</title> 
         <style type = "text/CSS">
+			body{
+				display: flex;
+				justify-content: center;
+			}
             .symbol {
 				font-family: Calibri;
 				font-size: 48px;
@@ -13,6 +17,7 @@
 			}
 			td {
 				width: 100px;
+				border-width: 2px;
 				text-align: center;
 			}
         </style>
@@ -28,10 +33,12 @@
 				window.alert("此位置無法選取！");
 			} else if (player == 1) {
 				currentSelection.innerHTML = 'X'; 
+				currentSelection.style.color = "#0000FF";
 				player = 2; 
 				count++; 
 			} else if (player == 2) {
 				currentSelection.innerHTML = 'O'; 
+				currentSelection.style.color = "#00FF00";
 				player = 1; 
 				count++;
 			}
@@ -82,7 +89,7 @@
         </script>
     </head>
     <body>
-        <table id="table" border="1px" class="symbol">
+        <table id="table" border="3px" class="symbol">
             <tr>
                 <td id='grid11' onclick="determine(id);"></td>
                 <td id='grid12' onclick="determine(id);"></td>
