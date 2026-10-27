@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
 		<title>tic-tac-toe</title> 
-        <style type = "text/CSS">
+        <style type="text/css">
             .symbol {
 				font-family: Calibri;
 				font-size: 48px;
@@ -14,11 +14,16 @@
 			td {
 				width: 100px;
 				text-align: center;
+				cursor: pointer;
+			}
+			td:hover {
+				background-color: #f0f0f0;
 			}
         </style>
         <script>
-		var count = 0; 
+		var count = 0;
 		var player = 1;
+
 		function determine(id) {
 			var grids = [];
 			var isLine = false;
