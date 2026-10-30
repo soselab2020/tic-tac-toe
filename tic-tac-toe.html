@@ -15,6 +15,10 @@
 				width: 100px;
 				text-align: center;
 			}
+			.status {
+				font-family: Calibri;
+				font-size: 24px;
+			}
         </style>
         <script>
 		var count = 0; 
@@ -30,10 +34,12 @@
 				currentSelection.innerHTML = 'X'; 
 				player = 2; 
 				count++; 
+				document.getElementById("status").innerHTML = "輪到 O 下棋";
 			} else if (player == 2) {
 				currentSelection.innerHTML = 'O'; 
 				player = 1; 
 				count++;
+				document.getElementById("status").innerHTML = "輪到 X 下棋";
 			}
 			
 			for (var i = 1; i <= 3; i++) {
@@ -82,6 +88,7 @@
         </script>
     </head>
     <body>
+        <p id="status" class="status">輪到 X 下棋</p>
         <table id="table" border="1px" class="symbol">
             <tr>
                 <td id='grid11' onclick="determine(id);"></td>
