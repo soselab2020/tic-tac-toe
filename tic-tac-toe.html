@@ -26,6 +26,7 @@
 
 			if (currentSelection.innerHTML) {
 				window.alert("此位置無法選取！");
+				return;
 			} else if (player == 1) {
 				currentSelection.innerHTML = 'X'; 
 				player = 2; 
@@ -35,6 +36,7 @@
 				player = 1; 
 				count++;
 			}
+			document.getElementById("turn").innerHTML = "目前輪到：" + (player == 1 ? "X" : "O");
 			
 			for (var i = 1; i <= 3; i++) {
 				grids[i] = [];
@@ -82,6 +84,7 @@
         </script>
     </head>
     <body>
+        <p id="turn">目前輪到：X</p>
         <table id="table" border="1px" class="symbol">
             <tr>
                 <td id='grid11' onclick="determine(id);"></td>
